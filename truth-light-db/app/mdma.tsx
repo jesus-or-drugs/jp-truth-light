@@ -2,6 +2,9 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { getAllSubstanceIds, getSubstanceById } from "@/lib/substances";
 import { Substance } from "@/types/substance";
 
+import { jsx as _jsx } from "react/jsx-runtime";
+const element = _jsx("h1", { children: "Hello, world!" });
+
 type Props = {
   substance: Substance;
 };
