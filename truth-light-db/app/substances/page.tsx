@@ -2,7 +2,6 @@
 
 import fs from "fs";
 import path from "path";
-import type { GetStaticProps, NextPage } from "next";
 
 type Substance = {
   id: string;
@@ -12,11 +11,7 @@ type Substance = {
   psychoactive_class: string;
 };
 
-type SubstanceListPageProps = {
-  substances: Substance[];
-};
-
-export const getStaticProps: GetStaticProps<SubstanceListPageProps> = async () => {
+export default async function GetSubstance() {
   const dir = path.join(process.cwd(), "data/substances");
   const files = fs.readdirSync(dir);
 
@@ -33,11 +28,9 @@ export const getStaticProps: GetStaticProps<SubstanceListPageProps> = async () =
       psychoactive_class: data.psychoactive_class,
     };
   });
-
-  return { props: { substances } };
 };
 
-const SubstanceListPage: NextPage<SubstanceListPageProps> = ({ substances }) => {
+const ViewSubstanceSearchPage =  (substance: Substance) => {
   return (
     <main style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
       <h1>Fact Sheet of Substances Regulated in Japan</h1>
@@ -45,30 +38,6 @@ const SubstanceListPage: NextPage<SubstanceListPageProps> = ({ substances }) => 
         日本で規制されている、あるいは精神作用を持つ物質の
         法的ステータスと基本的なプロパティをまとめたデータベースです。
       </p>
-
-      <ul style={{ marginTop: "2rem", listStyle: "none", padding: 0 }}>
-        {substances.map((s) => (
-          <li
-            key={s.id}
-            style={{
-              padding: "0.8rem 0",
-              borderBottom: "1px solid　#eee"
-            }}
-          >
-            <a
-              href={`/substances/${s.id}`}
-              style={{ fontSize: "1.1rem", fontWeight: "bold" }}
-            >
-              {s.name_ja} / {s.name_en}
-            </a>
-            <div style={{ fontSize: "0.9rem", opacity: 0.8 }}>
-              {s.psychoactive_class} / {s.jp_legal_status}
-            </div>
-          </li>
-        ))}
-      </ul>
     </main>
-  );
+    );
 };
-
-export default SubstanceListPage;
