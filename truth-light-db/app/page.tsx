@@ -1,7 +1,14 @@
-export default function Home() {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ファクトシート",
+  description: "向精神薬の規制情報から薬理学的知見まで",
+};
+
+export default function Home({children}: {children: React.ReactNode}) {
   return (
     <main style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
-      <h1>ファクトシート(page.tsx)</h1>
+      <h1>{metadata.title}</h1>
       <p>
         日本の法規制のもとにある物質、あるいは精神に作用する物質について、
         中立的な情報とハームリダクションの観点からまとめていくプロジェクトです。

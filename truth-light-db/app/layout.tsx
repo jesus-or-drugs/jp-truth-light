@@ -1,15 +1,18 @@
-export default function Home() {
-  return (
-    <main style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
-      <h1>ファクトシート(layout.tsx)</h1>
-      <p>
-        日本の法規制のもとにある物質、あるいは精神に作用する物質について、
-        中立的な情報とハームリダクションの観点からまとめていくプロジェクトです。
-      </p>
+import type { Metadata } from "next";
+import type React from "react";
+import "./globals.css";
 
-      <p style={{ marginTop: "1.5rem" }}>
-        <a href="/substances">▶ 物質一覧を見る</a>
-      </p>
-    </main>
+export const metadata: Metadata = {
+  title: "ファクトシート",
+  description: "向精神薬の規制情報から薬理学的知見まで",
+};
+
+export default function RootLayout({children}: {children: React.ReactNode}) {
+  return (
+    <html lang="ja">
+      <body>
+        {children}
+      </body>
+    </html>
   );
 }
