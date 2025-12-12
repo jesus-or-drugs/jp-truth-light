@@ -1,0 +1,21 @@
+{
+  "id": "mdma",
+  "name_ja": "MDMA",
+  "name_en": "MDMA",
+  "aliases": ["エクスタシー", "E"],
+  "chemical_class": "フェネチルアミン系",
+  "psychoactive_class": "エンパソゲン / エンパシオゲン",
+  "mechanism": "セロトニン・ドーパミン・ノルアドレナリンの放出促進",
+  "effects_desired": [
+    "多幸感",
+    "共感の増大",
+    "感覚の鋭敏化"
+  ],
+  "jp_legal_status": "麻薬（麻薬及び向精神薬取締法）",
+  "jp_law_basis": "麻薬及び向精神薬取締法",
+  "sources": [
+    "厚生労働省公式サイト",
+    "官報"
+  ],
+  "last_reviewed": "2025-01-01"
+}
